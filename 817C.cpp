@@ -1,6 +1,6 @@
 /** ========================================**
  ** @Author: Kareem Taha Abdelfatah
- ** @Category: Codeforces problem solutions
+ ** @Category: Codeforces problems solutions
 /** ========================================**/
 
 #include<bits/stdc++.h>
