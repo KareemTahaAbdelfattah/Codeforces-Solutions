@@ -1,3 +1,3 @@
-# Codeforces-Solutions
-Codeforces problems solutions.
+# Codeforces-Problems-Solution
+Codeforces problems solution.
 C++ language.
