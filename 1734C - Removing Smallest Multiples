@@ -1,0 +1,65 @@
+/** ========================================**
+ ** @Author: Kareem Taha Abdelfatah
+ ** @Category: Codeforces problems solutions
+ ** @brief: Problem Solving solutions
+/** ========================================**/
+
+#include<bits/stdc++.h>
+#include<iterator>
+using namespace std;
+#define IO                  ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+#define endll               "\n"
+#define ll                  long long
+#define LightOn(n, k)       ((n) | (1<<k))
+#define Lightoff(n, k)      ((n) & (~(1<<k)))
+#define IsOn(n, k)          ((n>>k)&1)
+const long long N = 2e5 + 5;
+const double PI = 3.14;
+const double Prox = 1e-7;
+map<char, ll>mp;
+char a[N];
+set<char>s;
+
+vector<ll>v1, v2;
+int main()
+{
+    IO
+    ll Tc; cin >> Tc;
+    while(Tc--){
+        v1.clear();
+        v2.clear();
+        ll n, sum = 0; cin >> n;
+        string s; cin >> s;
+        for(ll i = 1; i <= n; i++){
+            ll n;
+            stringstream ss;
+            ss << s[i - 1];
+            ss >> n;
+            v1.push_back(n);
+            v2.push_back(i);
+        }
+        for(ll i = 1; i <= n; i++){
+            if(v1[i - 1] == 0){
+                sum += v2[i - 1];
+                for(ll j = (i + i); j <= n; j += i){
+                    if(v1[j - 1] == 0){
+                        sum += v2[i - 1];
+                        v1[j - 1] = 2;
+                    }
+                    else if(v1[j - 1] == 1) break;
+                }
+            }
+            else if(v1[i - 1] == 2){
+                for(ll j = (i + i); j <= n; j += i){
+                    if(v1[j - 1] == 0){
+                        sum += v2[i - 1];
+                        v1[j - 1] = 2;
+                    }
+                    else if(v1[j - 1] == 1) break;
+                }
+            }
+        }
+        cout << sum << endll;
+    }
+    return 0;
+}
