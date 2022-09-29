@@ -32,13 +32,10 @@ int main()
         for(ll i = 1; i < n; i++){
             ll n1 = a[i] + b[i - 1];
             b[i] = n1;
-            for(ll j = 1; j < b[i]; j++){
-                if(abs(j - b[i - 1]) == a[i]){
-                    flag = 1;
-                    break;
-                }
+            if(a[i] + b[i - 1] != b[i - 1] - a[i] && b[i - 1] - a[i] >= 0){
+                flag = 1;
+                break;
             }
-            if(flag == 1) break;
         }
         if(flag == 1) cout << -1 << endll;
         else{
